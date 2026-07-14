@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swidia Alfi — Client Relationship Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1A0A2E;
+    --ink-2:#120720;
+    --ink-3:#2D1454;
+    --paper:#F5F0FA;
+    --paper-2:#FAF7FE;
+    --gain:#7C3AED;
+    --gain-br:#A78BFA;
+    --brass:#D4A847;
+    --line:rgba(16,35,59,.14);
+    --line-d:rgba(255,255,255,.12);
+    --muted:rgba(16,35,59,.62);
+    --muted-d:rgba(240,244,250,.66);
+    --f-disp:"Fraunces",Georgia,serif;
+    --f-body:"IBM Plex Sans",system-ui,sans-serif;
+    --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--f-body);color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  ::selection{background:var(--gain);color:#fff}
+
+  /* ---------- ticker ---------- */
+  .ticker{background:var(--ink-2);color:var(--paper);border-bottom:1px solid var(--line-d);overflow:hidden;white-space:nowrap;position:relative}
+  .ticker-track{display:inline-flex;gap:0;padding:9px 0;animation:scroll 34s linear infinite;will-change:transform}
+  .ticker:hover .ticker-track{animation-play-state:paused}
+  .tick{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:0 22px;color:var(--muted-d)}
+  .tick b{color:var(--paper);font-weight:600}
+  .tick .up{color:var(--gain-br)}
+  .tick .dot{color:var(--brass)}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ---------- shell ---------- */
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  section{position:relative}
+  .eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);font-weight:500}
+
+  /* ---------- hero ---------- */
+  .hero{background:var(--ink);color:var(--paper);padding:78px 0 92px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(1100px 460px at 82% -12%,rgba(167,139,250,.15),transparent 60%);pointer-events:none}
+  .hero-inner{max-width:680px;position:relative;z-index:1}
+  
+  
+  
+  
+  
+  .hero h1{font-family:var(--f-disp);font-weight:600;font-size:clamp(44px,7.4vw,84px);line-height:.96;letter-spacing:-.02em;margin:16px 0 10px}
+  .hero .role{font-family:var(--f-mono);font-size:14px;letter-spacing:.28em;text-transform:uppercase;color:var(--gain-br)}
+  .hero p.lead{max-width:46ch;color:var(--muted-d);font-size:16.5px;margin:20px 0 26px}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:30px}
+  .chip{font-family:var(--f-mono);font-size:12px;letter-spacing:.04em;border:1px solid var(--line-d);border-radius:100px;padding:6px 13px;color:var(--paper)}
+  .chip .mk{color:var(--gain-br);margin-right:6px}
+  .cta{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--f-mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:13px 20px;border-radius:6px;transition:transform .18s ease,background .18s ease}
+  .btn-p{background:linear-gradient(135deg,#7C3AED,#D4A847);color:#fff;font-weight:600}
+  .btn-p:hover{transform:translateY(-2px);background:#6D28D9}
+  .btn-g{border:1px solid var(--line-d);color:var(--paper)}
+  .btn-g:hover{transform:translateY(-2px);border-color:var(--gain-br)}
+
+  /* ---------- section frame ---------- */
+  .band{padding:84px 0}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:38px;flex-wrap:wrap}
+  .sec-head h2{font-family:var(--f-disp);font-weight:600;font-size:clamp(28px,4vw,42px);letter-spacing:-.015em;line-height:1.02}
+  .sec-head .idx{font-family:var(--f-mono);font-size:13px;color:var(--brass);letter-spacing:.1em}
+
+  /* about */
+  .about p{font-size:clamp(19px,2.4vw,25px);font-family:var(--f-disp);font-weight:400;line-height:1.5;max-width:30ch}
+  .about .col2{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:start}
+  .about .side{font-size:15.5px;color:var(--muted)}
+  .about .side strong{color:var(--ink)}
+  .about .side .kv{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line);font-family:var(--f-mono);font-size:13px;letter-spacing:.02em}
+  .about .side .kv span:first-child{color:var(--muted)}
+
+  /* impact */
+  .impact{background:var(--ink);color:var(--paper)}
+  .impact .sec-head h2{color:var(--paper)}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-d);border:1px solid var(--line-d);border-radius:12px;overflow:hidden}
+  .stat{background:var(--ink);padding:30px 24px}
+  .stat .n{font-family:var(--f-mono);font-weight:600;font-size:clamp(34px,4.4vw,50px);color:var(--gain-br);line-height:1;letter-spacing:-.02em}
+  .stat .l{font-size:13.5px;color:var(--muted-d);margin-top:12px;max-width:20ch}
+  .src{margin-top:26px}
+  .src .bar{display:flex;height:12px;border-radius:100px;overflow:hidden;border:1px solid var(--line-d)}
+  .src .bar i{display:block}
+  .src   .s1{background:#7C3AED;width:56%}
+  .src   .s2{background:#D4A847;width:33%}
+  .src   .s3{background:rgba(245,240,250,.35);width:11%}
+  .src .legend{display:flex;gap:22px;flex-wrap:wrap;margin-top:12px;font-family:var(--f-mono);font-size:12px;letter-spacing:.03em;color:var(--muted-d)}
+  .src .legend b{color:var(--paper);font-weight:600}
+  .caption{margin-top:22px;font-family:var(--f-mono);font-size:12px;letter-spacing:.03em;color:var(--muted-d)}
+
+  /* experience */
+  .tl{border-left:2px solid var(--line);margin-left:6px}
+  .job{position:relative;padding:0 0 40px 34px}
+  .job:last-child{padding-bottom:0}
+  .job::before{content:"";position:absolute;left:-8px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid #7C3AED}
+  .job .yr{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.06em;color:var(--brass)}
+  .job h3{font-family:var(--f-disp);font-weight:600;font-size:22px;margin:5px 0 2px;letter-spacing:-.01em}
+  .job .org{font-size:14.5px;color:var(--muted);font-weight:500;margin-bottom:9px}
+  .job p{font-size:15px;max-width:60ch;color:rgba(16,35,59,.82)}
+
+  /* capabilities */
+  .caps{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .cap{background:var(--paper-2);border:1px solid var(--line);border-radius:12px;padding:24px;transition:transform .2s ease,border-color .2s ease}
+  .cap:hover{transform:translateY(-3px);border-color:#7C3AED}
+  .cap .t{display:flex;align-items:center;gap:11px;margin-bottom:9px}
+  .cap .t span{font-family:var(--f-mono);font-size:12px;color:var(--gain);border:1px solid var(--gain);border-radius:6px;padding:2px 7px}
+  .cap h3{font-family:var(--f-disp);font-weight:600;font-size:19px}
+  .cap p{font-size:14.5px;color:var(--muted)}
+
+  /* credentials */
+  .cred{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  .cred .block h3{font-family:var(--f-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+  .item{margin-bottom:18px}
+  .item .h{font-family:var(--f-disp);font-weight:600;font-size:17px}
+  .item .m{font-size:14px;color:var(--muted);font-family:var(--f-mono);letter-spacing:.01em}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+  .tag{font-family:var(--f-mono);font-size:12px;letter-spacing:.02em;background:var(--paper-2);border:1px solid var(--line);border-radius:100px;padding:7px 13px;color:rgba(16,35,59,.82)}
+  .subhead{font-family:var(--f-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:34px 0 4px}
+
+  /* contact */
+  .contact{background:var(--ink-2);color:var(--paper);text-align:center;padding:92px 0}
+  .contact .eyebrow{color:var(--gain-br)}
+  .contact h2{font-family:var(--f-disp);font-weight:600;font-size:clamp(32px,5vw,54px);letter-spacing:-.02em;margin:14px 0 8px}
+  .contact p{color:var(--muted-d);max-width:44ch;margin:0 auto 34px}
+  .cinfo{display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+  .cinfo a{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-family:var(--f-mono);font-size:13px;letter-spacing:.03em;border:1px solid var(--line-d);border-radius:8px;padding:13px 18px;transition:border-color .18s,transform .18s}
+  .cinfo a:hover{border-color:#A78BFA;transform:translateY(-2px)}
+  .cinfo a .k{color:var(--gain-br)}
+  .foot{margin-top:44px;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.05em;color:rgba(240,244,250,.4)}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .rv.in{opacity:1;transform:none}
+
+  :focus-visible{outline:2px solid var(--gain-br);outline-offset:3px;border-radius:3px}
+
+  @media (max-width:760px){
+    .hero{padding:52px 0 64px}
+    .hero-grid{grid-template-columns:1fr;gap:28px;text-align:center}
+    
+    .hero .chips,.hero .cta{justify-content:center}
+    .hero p.lead{margin-left:auto;margin-right:auto}
+    .band{padding:60px 0}
+    .about .col2{grid-template-columns:1fr;gap:32px}
+    .about p{max-width:none}
+    .stats{grid-template-columns:1fr 1fr}
+    .caps{grid-template-columns:1fr}
+    .cred{grid-template-columns:1fr;gap:36px}
+  }
+  @media (max-width:420px){.stats{grid-template-columns:1fr}}
+  @media (prefers-reduced-motion:reduce){
+    .ticker-track{animation:none}
+    .rv{transition:none;opacity:1;transform:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="tt">
+    <span class="tick"><b>SWIDIA ALFI</b></span>
+    <span class="tick">CLIENT RELATIONSHIP SPECIALIST</span>
+    <span class="tick">EXPERIENCE <span class="up">▲</span> 3 THN</span>
+    <span class="tick">WPPE <span class="dot">●</span></span>
+    <span class="tick">RTA<sup>®</sup> <span class="dot">●</span></span>
+    <span class="tick">NEW ACCOUNTS <span class="up">+9</span> / OKT'21</span>
+    <span class="tick">FUNDS TOP UP <span class="up">▲ 3×</span> MOM</span>
+    <span class="tick">APPROVED → ACTIVE <span class="up">89%</span></span>
+    <span class="tick">INDONESIAN CAPITAL MARKET <span class="dot">●</span></span>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="role">Client Relationship Specialist</div>
+      <h1>Swidia Alfi</h1>
+      <p class="lead">Turning new accounts into long-term clients. Three years keeping investors engaged, informed, and coming back in the Indonesian capital market.</p>
+      <div class="chips">
+        <span class="chip"><span class="mk">›</span>Client Retention</span>
+        <span class="chip"><span class="mk">›</span>Technical &amp; Fundamental Analysis</span>
+        <span class="chip"><span class="mk">›</span>Client Acquisition &amp; Retention</span>
+      </div>
+      <div class="cta">
+        <a class="btn btn-p" href="mailto:Swidiaalfism@gmail.com">Get in Touch</a>
+        <a class="btn btn-g" href="#pengalaman">View Experience</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section class="band wrap about" id="tentang">
+  <div class="sec-head rv"><span class="idx">01</span><h2>About Me</h2></div>
+  <div class="col2">
+    <p class="rv">Most brokers chase new accounts. I focus on what happens after. Over three years in Indonesia's capital market, I have built the habit of staying in regular contact with every client — checking in on their portfolio, flagging opportunities before they ask, and making sure they never feel like just an account number. That consistency is what turns a first deposit into a long-term relationship. My retention rate reflects it: the majority of clients I onboard continue to top up and transact, not because of incentives, but because they trust the relationship.</p>
+    <div class="side rv">
+      <div class="kv"><span>Role</span><span>Client Relationship Specialist</span></div>
+      <div class="kv"><span>Focus</span><span>Client Retention &amp; Relationship</span></div>
+      <div class="kv"><span>Licence</span><span>WPPE · RTA®</span></div>
+      <div class="kv"><span>Based in</span><span>Surabaya, East Java</span></div>
+      <div class="kv"><span>Experience</span><span>± 3 Years</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="band impact">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="idx">02</span><h2>Numbers That Speak</h2></div>
+    <div class="stats rv">
+      <div class="stat"><div class="n">9</div><div class="l">New accounts opened in a single month</div></div>
+      <div class="stat"><div class="n">89%</div><div class="l">Approved accounts successfully activated</div></div>
+      <div class="stat"><div class="n">Rp144<span style="font-size:.55em">jt</span></div><div class="l">Total deposits collected from new clients</div></div>
+      <div class="stat"><div class="n">≈3×</div><div class="l">Month-on-month growth in top-up funds</div></div>
+    </div>
+    <div class="src rv">
+      <div class="bar"><i class="s1"></i><i class="s2"></i><i class="s3"></i></div>
+      <div class="legend">
+        <span><b>56%</b> Client referral</span>
+        <span><b>33%</b> Social media</span>
+        <span><b>11%</b> Personal network</span>
+      </div>
+    </div>
+    <p class="caption rv">Highlights from one monthly performance cycle (October 2021) at CGS-CIMB Sekuritas, Pantai Indah Kapuk Branch.</p>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="band wrap" id="pengalaman">
+  <div class="sec-head rv"><span class="idx">03</span><h2>Experience</h2></div>
+  <div class="tl">
+    <div class="job rv">
+      <div class="yr">JUN 2023 — PRESENT</div>
+      <h3>Investment Specialist</h3>
+      <div class="org">PT Bahana Sekuritas · Cabang Surabaya</div>
+      <p>Educating prospective investors through both online and offline channels, supporting RDN account openings, reviewing client stock portfolios, and delivering buy/sell recommendations based on technical and fundamental analysis.</p>
+    </div>
+    <div class="job rv">
+      <div class="yr">JUN 2021 — APR 2023</div>
+      <h3>Equity Sales Executive</h3>
+      <div class="org">PT CGS-CIMB Sekuritas Indonesia · Cabang Pantai Indah Kapuk</div>
+      <p>Sourcing prospective clients, opening RDN accounts, reviewing portfolios on request, and designing marketing programmes to grow the client base through both online and offline channels.</p>
+    </div>
+    <div class="job rv">
+      <div class="yr">MAR 2021 — MEI 2021</div>
+      <h3>Freelance</h3>
+      <div class="org">PT Phintraco Sekuritas · Cabang Bali</div>
+      <p>Sourcing new investors, assisting with RDN account setup, and providing introductory capital market education.</p>
+    </div>
+    <div class="job rv">
+      <div class="yr">JAN 2020 — DEC 2020</div>
+      <h3>Freelance · Project Administration</h3>
+      <div class="org">Budi Jaya 2 Konstruksi Baja</div>
+      <p>Preparing project documentation including work orders, invoices, billing, and construction budget proposals.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section class="band wrap">
+  <div class="sec-head rv"><span class="idx">04</span><h2>What I Do</h2></div>
+  <div class="caps">
+    <div class="cap rv"><div class="t"><span>01</span><h3>Client Acquisition</h3></div><p>Sourcing new investors through referrals, social media, and personal networks. Referrals consistently drive over half of all new accounts.</p></div>
+    <div class="cap rv"><div class="t"><span>02</span><h3>RDN Opening &amp; IPO</h3></div><p>Guiding clients through the full RDN account opening process until activation, including IPO form completion for interested investors.</p></div>
+    <div class="cap rv"><div class="t"><span>03</span><h3>Portfolio Review &amp; Recommendations</h3></div><p>Analysing client portfolios and delivering buy or sell recommendations grounded in technical and fundamental analysis, tailored to each client's risk profile.</p></div>
+    <div class="cap rv"><div class="t"><span>04</span><h3>Retention &amp; Top Up</h3></div><p>Proactively reaching out to clients through the Top Up Booster programme to keep accounts active and encourage consistent fund accumulation.</p></div>
+    <div class="cap rv"><div class="t"><span>05</span><h3>Content &amp; Education</h3></div><p>Building investor awareness through Instagram, TikTok, discussion threads, and Zoom webinars aimed at beginner investors.</p></div>
+    <div class="cap rv"><div class="t"><span>06</span><h3>Marketing Strategy</h3></div><p>Designing campaigns such as the Client Get Stock programme and targeted leaflet distribution to drive new account growth.</p></div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="band wrap">
+  <div class="sec-head rv"><span class="idx">05</span><h2>Credentials</h2></div>
+  <div class="cred">
+    <div class="block rv">
+      <h3>Certifications &amp; Licences</h3>
+      <div class="item"><div class="h">WPPE — Pemasaran</div><div class="m">Otoritas Jasa Keuangan · 2020–2024</div></div>
+      <div class="item"><div class="h">Regular Technical Analyst (RTA®)</div><div class="m">LSP-PM · 2021–2024</div></div>
+      <div class="subhead">Organisations</div>
+      <div class="tags">
+        <span class="tag">KSPM UNDIKNAS · President '19–'20</span>
+        <span class="tag">KSPM UNDIKNAS · Secretary '18–'19</span>
+        <span class="tag">Public Speaking Club UNDIKNAS '18–'19</span>
+      </div>
+    </div>
+    <div class="block rv">
+      <h3>Education</h3>
+      <div class="item"><div class="h">B.Sc. Management — Financial Management</div><div class="m">UNDIKNAS Denpasar · 2017–2021 · GPA 3.68</div></div>
+      <div class="item"><div class="h">SMK Ibrahimy 3 Sukorejo — Akuntansi</div><div class="m">2014–2017</div></div>
+      <div class="item"><div class="h">SMP Ibrahimy 1 Sukorejo</div><div class="m">2011–2014</div></div>
+      <div class="subhead">Skills</div>
+      <div class="tags">
+        <span class="tag">Technical Analysis</span>
+        <span class="tag">Fundamental Analysis</span>
+        <span class="tag">Negotiation</span>
+        <span class="tag">Microsoft Excel</span>
+        <span class="tag">Word · PowerPoint</span>
+        <span class="tag">Social Media Marketing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="kontak">
+  <div class="wrap">
+    <div class="eyebrow rv">Let's Connect</div>
+    <h2 class="rv">Interested in working together?</h2>
+    <p class="rv">Open to client relationship roles in financial services, investment advisory, and account management.</p>
+    <div class="cinfo rv">
+      <a href="mailto:Swidiaalfism@gmail.com"><span class="k">Email</span> Swidiaalfism@gmail.com</a>
+      <a href="tel:+6281339110564"><span class="k">Phone / WA</span> +62 813-3911-0564</a>
+      <a href="#" data-linkedin><span class="k">LinkedIn</span> Swidia Alfi</a>
+    </div>
+    <div class="foot">Surabaya, East Java · Investment Specialist · Indonesian Capital Market</div>
+  </div>
+</section>
+
+<script>
+  // seamless ticker: duplicate content
+  var tt=document.getElementById('tt');
+  if(tt){tt.innerHTML=tt.innerHTML+tt.innerHTML;}
+  // scroll reveal
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+</script>
+</body>
+</html>
